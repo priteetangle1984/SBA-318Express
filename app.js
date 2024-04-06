@@ -35,3 +35,25 @@ app.use("/api/staff", staffRoutes);
 app.use("/api/students", studentsRoutes)
 
 
+
+
+//////////////GET ROUTE TO RENDER THE FORM ===========
+app.get("/", (req, res) => {
+    res.render("index");
+});
+
+// app.get("/submit", (req, res) => {
+//     res.render("submit"); 
+// });
+
+
+// POST ROUTE TO HANDLE THE FORM SUBMISSION============
+
+app.post("/submit", (req, res) => {
+    const {  studentname, email, password, address,
+        address2, city, state, zip } = req.body;
+    // Do something with the form data, e.g., save it to a database
+    console.log("Received form data:", { studentname, email, password, address,
+        address2, city, state, zip  });
+    res.send("Form submitted successfully!");
+});

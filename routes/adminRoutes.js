@@ -23,5 +23,30 @@ router.post("/", (req, res) => {
 });
 
 
+// GET admin by ID
+router.get("/:id", (req, res) => {
+    const admin = admin.find((u) => u.id == req.params.id);
+    if (admin) {
+        res.json(admin);
+    } else {
+        res.status(404).json({ error: "Admin not found" });
+    }
+});
+
+
+// PATCH update admin by ID
+router.patch("/:id", (req, res) => {
+    const adminId = req.params.id;
+    const adminIndex = admin.findIndex((u) => u.id == adminId);
+    if (adminIndex !== -1) {
+        admin[adminIndex] = { ...admin[adminIndex], ...req.body };
+        res.json(admin[adminIndex]);
+    } else {
+        res.status(404).json({ error: "Admin not found" });
+    }
+});
+
+
+
 
 module.exports = router;

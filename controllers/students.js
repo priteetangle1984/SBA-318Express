@@ -35,6 +35,54 @@ const students = [
         Zip: "19987",
     },
 
-  
+    {
+        id: 4,
+        StudentName: "Jane Dane",
+        email: "test@example.com",
+        password: "test@223",
+        Address: "12315 drive",
+        Address2: "street",
+        City: "city city",
+        State: "state state",
+        Zip: "12387",
+    },
+
+    {
+        id: 5,
+        StudentName: "Testing Dane",
+        email: "test12@example.com",
+        password: "test78@223",
+        Address: "12315 drive",
+        Address2: "road",
+        City: "city89",
+        State: "state",
+        Zip: "12336",
+    },
+
+    {
+        id: 6,
+        StudentName: "Jayes Dane",
+        email: "tester@example.com",
+        password: "testing@223",
+        Address: "123745 drive",
+        Address2: "post",
+        City: "city2",
+        State: "state",
+        Zip: "124687",
+    },
+
+    {
+        id: 7,
+        StudentName: "Test tester",
+        email: "test@example.com",
+        password: "test@256",
+        Address: "12365 drive",
+        Address2: "lake",
+        City: "city city",
+        State: "state state",
+        Zip: "123634",
+    },
+
+
 ]  
   module.exports = students;

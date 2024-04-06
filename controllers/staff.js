@@ -22,7 +22,36 @@ const staff =
     role: "assistant teacher",
   },
 
-  
+  {
+    id: 4,
+    staffId: 4,
+    adminId: 4,
+    role: "office admin",
+  },
+
+
+  {
+    id: 5,
+    StaffId: 5,
+    adminId: 5,
+    role: "substitute teacher",
+  },
+
+  {
+    id: 6,
+    StaffId: 6,
+    studentId: 6,
+    role: "assistant teacher",
+  },
+
+  {
+    id: 7,
+    StaffId: 7,
+    studentId: 7,
+    role: "teacher",
+  },
+
+
 ]
 
 

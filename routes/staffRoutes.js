@@ -27,4 +27,29 @@ router.post("/", (req, res) => {
 });
 
 
+// GET staff by ID
+router.get("/:id", (req, res) => {
+    const staff = staff.find((staff) => staff.id == req.params.id);
+    if (staff) {
+        res.json(staff);
+    } else {
+        res.status(404).json({ error: "Staff not found" });
+    }
+});
+
+
+// PATCH update staff by ID
+router.patch("/:id", (req, res) => {
+    const staffId = req.params.id;
+    const staffIndex = staff.findIndex((staff) => staff.id == staffId);
+    if (staffIndex !== -1) {
+        staff[staffIndex] = { ...staff[staffIndex], ...req.body };
+        res.json(staff[staffIndex]);
+    } else {
+        res.status(404).json({ error: "Staff not found" });
+    }
+});
+
+
+
 module.exports = router;
