@@ -11,6 +11,17 @@ router.get("/", (req, res) => {
 // Creating a simple GET route for individual admin,
 // using a route parameter for the unique id.
 
+// GET admin by ID
+router.get("/:id", (req, res) => {
+    const admin = admin.find((u) => u.id == req.params.id);
+    if (admin) {
+        res.json(admin);
+    } else {
+        res.status(404).json({ error: "Admin not found" });
+    }
+});
+
+
 // POST create a new admin
 router.post("/", (req, res) => {
     const { adminId, access } = req.body;
@@ -22,16 +33,6 @@ router.post("/", (req, res) => {
     res.status(201).json(newAdmin);
 });
 
-
-// GET admin by ID
-router.get("/:id", (req, res) => {
-    const admin = admin.find((u) => u.id == req.params.id);
-    if (admin) {
-        res.json(admin);
-    } else {
-        res.status(404).json({ error: "Admin not found" });
-    }
-});
 
 
 // PATCH update admin by ID
