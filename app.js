@@ -16,3 +16,22 @@ const logReq = function (req, res, next) {
     console.log("Request Received");
     next();
 };
+
+
+app.use(express.urlencoded({ extended: true })); 
+
+
+app.use(logReq);
+
+
+// rendering views with ejs==============
+// app.set('views', './views');
+app.set("view engine", "ejs");
+app.use(express.static(path.join(__dirname, "styles")));
+
+// Use our Routes===========
+app.use("/api/admin", adminRoutes);
+app.use("/api/staff", staffRoutes);
+app.use("/api/students", studentsRoutes)
+
+

@@ -1,0 +1,43 @@
+/* Adjustments for form layout */
+.form-row {
+    margin-bottom: 15px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  /* Styling for labels */
+  label {
+    font-weight: bold;
+  }
+  
+  /* Styling for form inputs */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  select {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  /* Styling for checkbox */
+  .form-check-input {
+    margin-top: 5px;
+  }
+  
+  /* Styling for submit button */
+  button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #0056b3;
+  }

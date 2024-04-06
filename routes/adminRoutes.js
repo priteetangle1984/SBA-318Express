@@ -11,6 +11,17 @@ router.get("/", (req, res) => {
 // Creating a simple GET route for individual admin,
 // using a route parameter for the unique id.
 
+// POST create a new admin
+router.post("/", (req, res) => {
+    const { adminId, access } = req.body;
+    const newAdmin = {
+        id: admin.length + 1,
+        adminId, access
+    };
+    admin.push(newAdmin);
+    res.status(201).json(newAdmin);
+});
+
 
 
 module.exports = router;
