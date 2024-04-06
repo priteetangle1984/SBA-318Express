@@ -8,18 +8,19 @@ This Node.js application implements CRUD (Create, Read, Update, Delete) operatio
 
 1. Install dependencies:
 
-````bash
+New GitBash Terminal
+
 - npm install
 - npm npm init -y
 - npm i nodemon --save-dev
 - npm install express`: Web framework for Node.js.
 
-
 ## Usage
 
 1. Run the application:
 
-```bash
+New GitBash Terminal
+
 - npm start
 - node app.js
 
@@ -54,4 +55,3 @@ This Node.js application implements CRUD (Create, Read, Update, Delete) operatio
 - **Read**: Data retrieval handled by various API endpoints.
 - **Update**: Update user data handled by `PATCH /api/students/:id`.
 - **Delete**: Delete user data handled by `DELETE /api/students/:id`.
-````
