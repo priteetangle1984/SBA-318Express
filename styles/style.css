@@ -1,43 +1,96 @@
-/* Adjustments for form layout */
-.form-row {
-    margin-bottom: 15px;
+h1 {
+  margin-top: 2%;
+  text-align: center;
+}
+
+h2 {
+  margin-top: 2%;
+  text-align: center;
+}
+
+body {
+  background: linear-gradient( cyan, transparent), linear-gradient( -45deg, magenta, transparent), linear-gradient( 45deg, yellow, transparent);
+  background-blend-mode: multiply;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+form {
+  position: relative;
+  margin: 3% auto;
+  min-height: 60%;
+  width: 50%;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.6);
+  background: white;
+  padding: 0px 0px 5px 15px;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+
+input[type=text], select {
+  display: block;
+  margin: 0px 0px 15px 20px;
+  padding: 4px;
+  width: 80%;
+  height: 5%;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #aaa;
+  font-size: 12px;
+}
+
+input[type=email] {
+  display: block;
+  margin: 0px 0px 15px 20px;
+  padding: 4px;
+  width: 80%;
+  height: 5%;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #aaa;
+  font-size: 12px;
+}
+
+input[type=password] {
+  display: block;
+  margin: 0px 0px 15px 20px;
+  padding: 4px;
+  width: 80%;
+  height: 5%;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #aaa;
+  font-size: 12px;
+}
+
+button[type=submit] {
+  background: dodgerblue;
+  color: white;
+  margin: 10px 20px;
+  width: 80%;
+  height: 8%;
+  border: none;
+  border-radius: 4px;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+button[type=submit]:hover {
+  background-color: rgb(65, 142, 219);
+}
+
+.form-check-input {
+  margin-top: 5px;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px; 
+  border-radius: 4px;
+  border: 1px solid #ccc;
   }
-  
-  .form-group {
-    margin-bottom: 15px;
-  }
-  
-  /* Styling for labels */
-  label {
-    font-weight: bold;
-  }
-  
-  /* Styling for form inputs */
-  input[type="text"],
-  input[type="email"],
-  input[type="password"],
-  select {
-    width: 100%;
-    padding: 8px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-  }
-  
-  /* Styling for checkbox */
-  .form-check-input {
-    margin-top: 5px;
-  }
-  
-  /* Styling for submit button */
-  button[type="submit"] {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  button[type="submit"]:hover {
-    background-color: #0056b3;
-  }
+
+.form-check-label {
+  font-size: 17px;
+}
