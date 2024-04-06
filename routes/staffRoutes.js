@@ -50,6 +50,17 @@ router.patch("/:id", (req, res) => {
     }
 });
 
+// DELETE delete staff by ID
+router.delete("/:id", (req, res) => {
+    const staffId = req.params.id;
+    const staffIndex = staff.findIndex((staff) => staff.id == staffId);
+    if (staffIndex !== -1) {
+        staff.splice(staffIndex, 1);
+        res.json({ message: "Staff deleted successfully" });
+    } else {
+        res.status(404).json({ error: "Staff not found" });
+    }
+});
 
 
 module.exports = router;

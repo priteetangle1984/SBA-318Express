@@ -19,7 +19,7 @@ const staff =
     id: 3,
     StaffId: 3,
     studentId: 3,
-    role: "assistant teacher",
+    role: "counsellor",
   },
 
   {
@@ -41,14 +41,14 @@ const staff =
     id: 6,
     StaffId: 6,
     studentId: 6,
-    role: "assistant teacher",
+    role: "teacher",
   },
 
   {
     id: 7,
     StaffId: 7,
     studentId: 7,
-    role: "teacher",
+    role: "assistant teacher",
   },
 
 

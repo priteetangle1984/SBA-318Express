@@ -57,3 +57,34 @@ app.post("/submit", (req, res) => {
         address2, city, state, zip  });
     res.send("Form submitted successfully!");
 });
+
+//// PATCH route to update user data==============
+app.patch("/api/students/:id", (req, res) => {
+    const studentId = req.params.id;
+    // Update user data based on studentId
+    res.send(`Updated students with id ${studentId}`);
+});
+
+///// DELETE route to delete user data==============
+app.delete("/api/students/:id", (req, res) => {
+    const studentId = req.params.id;
+    // Delete user data based on studentId
+    res.send(`Deleted students with id ${studentId}`);
+});
+
+// Custom 404 (not found) middleware=========
+app.use((req, res) => {
+    res.status(404);
+    res.json({ error: "Resource Not Found" });
+});
+
+// Error-handling middleware.=============
+app.use((err, req, res, next) => {
+    res.status(err.status || 500);
+    res.json({ error: err.message });
+});
+
+app.listen(port, () => {
+    console.log(`Server listening on port: ${port}.`);
+});
+

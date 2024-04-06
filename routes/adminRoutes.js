@@ -46,6 +46,17 @@ router.patch("/:id", (req, res) => {
     }
 });
 
+// DELETE delete admin by ID
+router.delete("/:id", (req, res) => {
+    const adminId = req.params.id;
+    const adminIndex = admin.findIndex((u) => u.id == adminId);
+    if (adminIndex !== -1) {
+        admin.splice(adminIndex, 1);
+        res.json({ message: "Admin deleted successfully" });
+    } else {
+        res.status(404).json({ error: "Admin not found" });
+    }
+});
 
 
 
