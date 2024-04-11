@@ -50,10 +50,15 @@ This repository contains a simple Express.js application with API routes for man
 
     - `GET:  http://localhost:3000/api/student/?api-key=dublinschools`: Retrieve student data.
     - `POST: http://localhost:3000/api/student/?api-key=ds-district`: Add a new student USING:
+    - 
       id: 1,
+      
       name: Carmen
+      
       username: Carmen_3
+      
       email: carmen_33@example.com
+      
     - `PATCH: http://localhost:3000/api/student/1?api-key=ds-district`: Patch student data USING ID.
     - `DELETE: http://localhost:3000/api/student/1?api-key=ds-district`: Delete a student.
 
