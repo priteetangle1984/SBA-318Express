@@ -2,7 +2,7 @@ const staff =
 [
   {
     id: 1,
-    staffId: 1,
+    StaffId: 1,
     adminId: 1,
     role: "staff",
   },
@@ -18,7 +18,7 @@ const staff =
   {
     id: 3,
     StaffId: 3,
-    studentId: 3,
+    adminId: 3,
     role: "counsellor",
   },
 
@@ -40,14 +40,14 @@ const staff =
   {
     id: 6,
     StaffId: 6,
-    studentId: 6,
+    adminId: 6,
     role: "teacher",
   },
 
   {
     id: 7,
     StaffId: 7,
-    studentId: 7,
+    adminId: 7,
     role: "assistant teacher",
   },
 

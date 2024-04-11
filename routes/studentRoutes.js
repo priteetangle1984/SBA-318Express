@@ -11,18 +11,19 @@ router.get("/", (req, res) => {
 
 // POST create a new student
 router.post("/", (req, res) => {
-    const { studentName, email, password, address,
-        address2, city, state, zip } = req.body;
+    const { StudentName, Age, email, password, Address,
+        Address2, City, State, Zip } = req.body;
     const newStudent = {
         id: students.length + 1,
-        studentName,
+        StudentName,
+        Age,
         email,
         password,
-        address,
-        address2,
-        city,
-        state,
-        zip
+        Address,
+        Address2,
+        City,
+        State,
+        Zip
     };
     students.push(newStudent);
     res.status(201).json(newStudent);

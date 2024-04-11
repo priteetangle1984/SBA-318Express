@@ -42,9 +42,21 @@ app.get("/", (req, res) => {
     res.render("index");
 });
 
-// app.get("/submit", (req, res) => {
-//     res.render("submit"); 
-// });
+app.get("/student", (req, res) => {
+    console.log(req.query);
+    return res.json({
+        StudentName: "Meme Jackson",
+        Age: req.query.age,
+        email: req.query.email,
+        password: req.query.password,
+        Address: req.query.address,
+        Address2: req.query.address2,
+        City: req.query.city,
+        State: req.query.state,
+        Zip: req.query.zip,
+    })
+    // res.render("index");
+});
 
 
 // POST ROUTE TO HANDLE THE FORM SUBMISSION============
@@ -52,24 +64,38 @@ app.get("/", (req, res) => {
 app.post("/submit", (req, res) => {
     const {  studentname, email, password, address,
         address2, city, state, zip } = req.body;
+        const queryParameter = req.query.parameterName;
     // Do something with the form data, e.g., save it to a database
-    console.log("Received form data:", { studentname, email, password, address,
-        address2, city, state, zip  });
+    console.log("Received form data:", { studentname, email, password, address, address2, city, state, zip  });
+        console.log("Received query parameter:", queryParameter);
     res.send("Form submitted successfully!");
 });
 
-//// PATCH route to update user data==============
-app.patch("/api/students/:id", (req, res) => {
+//// PATCH route to update student data==============
+app.patch("/api/students/", (req, res) => {
     const studentId = req.params.id;
-    // Update user data based on studentId
+    // Update student data based on studentId
     res.send(`Updated students with id ${studentId}`);
 });
 
-///// DELETE route to delete user data==============
+// Added the new PATCH route here
+app.patch("/api/students", (req, res) => {
+    const studentId = req.query.id; // Accessing query parameter 'id'
+    // Update student data based on studentId
+    res.send(`Updated student with id ${studentId}`);
+});
+
+///// DELETE route to delete student data==============
 app.delete("/api/students/:id", (req, res) => {
     const studentId = req.params.id;
-    // Delete user data based on studentId
-    res.send(`Deleted students with id ${studentId}`);
+    // Delete student data based on studentId
+    res.send(`Deleted student with id ${studentId}`);
+});
+
+app.delete("/api/students", (req, res) => {
+    const studentId = req.query.id; // Accessing query parameter 'id'
+    // Delete student data based on studentId
+    res.send(`Deleted student with id ${studentId}`);
 });
 
 // Custom 404 (not found) middleware=========

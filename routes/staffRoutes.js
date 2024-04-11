@@ -15,10 +15,10 @@ router.get("/", (req, res) => {
 
 // POST create a new staff
 router.post("/", (req, res) => {
-    const { staffId, adminId, role } = req.body;
+    const { StaffId, adminId, role } = req.body;
     const newStaff = {
         id: staff.length + 1,
-        staffId,
+        StaffId,
         adminId,
         role
     };

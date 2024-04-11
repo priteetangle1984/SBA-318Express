@@ -2,6 +2,7 @@ const students = [
     {
         id: 1,
         StudentName: "Pritee Tangle",
+        Age: "23",
         email: "test@example.com",
         password: "test@223",
         Address: "12315 drive",
@@ -14,6 +15,7 @@ const students = [
     {
         id: 2,
         StudentName: "Jaya Dane",
+        Age: "23",
         email: "test@example.com",
         password: "test@223",
         Address: "12315 drive",
@@ -26,6 +28,7 @@ const students = [
     {
         id: 3,
         StudentName: "rubix cube",
+        Age: "23",
         email: "rubix@example.com",
         password: "testrubix@223",
         Address: "18915 drive",
@@ -38,6 +41,7 @@ const students = [
     {
         id: 4,
         StudentName: "Jane Dane",
+        Age: "23",
         email: "test@example.com",
         password: "test@223",
         Address: "12315 drive",
@@ -50,6 +54,7 @@ const students = [
     {
         id: 5,
         StudentName: "Testing Dane",
+        Age: "23",
         email: "test12@example.com",
         password: "test78@223",
         Address: "12315 drive",
@@ -62,6 +67,7 @@ const students = [
     {
         id: 6,
         StudentName: "Jayes Dane",
+        Age: "23",
         email: "tester@example.com",
         password: "testing@223",
         Address: "123745 drive",
@@ -74,6 +80,7 @@ const students = [
     {
         id: 7,
         StudentName: "Test tester",
+        Age: "23",
         email: "test556@example.com",
         password: "testdoc@256",
         Address: "111165 drive",
