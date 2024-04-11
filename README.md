@@ -1,57 +1,78 @@
-# SBA-318Express
+# Express.js API Example
 
-# Node.js CRUD Application README
-
-This Node.js application implements CRUD (Create, Read, Update, Delete) operations using Express.js framework.
+This repository contains a simple Express.js application with API routes for managing student, staff, and admin data.
 
 ## Installation
 
-1. Install dependencies:
-
-New GitBash Terminal
-
-- npm install
-- npm npm init -y
-- npm i nodemon --save-dev
-- npm install express`: Web framework for Node.js.
+1. Clone this repository.
+2. Install dependencies using `npm install`.
+3. Install `npm install body-parser`
+4. Install `npm install dotenv`
+5. Install `npm install ejs`
+6. Install `npm install express`
+7. Install `npm install nodemon`
 
 ## Usage
 
-1. Run the application:
+1. Start the server: `npm start`.
+2. Access the API endpoints:
 
-New GitBash Terminal
+   - **Student Routes**:
+     - `GET /api/student`: Retrieve a list of students.
+     - `POST /api/student`: Add a new student.
+   - **Staff Routes**:
+     - `GET /api/staff`: Retrieve a list of staff members.
+   - **Admin Routes**:
+     - `GET /api/admin`: Retrieve admin information.
 
-- npm start
-- node app.js
+## Configuration
 
-2. Open your web browser and navigate to `http://localhost:3000`.
+- The server runs on port 3000 by default. You can change it by modifying the `port` variable in `index.js`.
+- API keys are required for accessing certain routes.
+- VALID KEYS INCLUDE//THIS IS IMPORTANT//: "dublinschools", "ds-district", and "data-for-schools".
 
-## Folder Structure
+## Middleware
 
-- **controller**: Contains data for admin, staff, and students.
-- **routes**: Contains route handlers for different API endpoints.
-- **styles**: Contains CSS files for styling.
-- **views**: Contains EJS templates for rendering HTML pages.
+- **Parsing Middleware**:
+  - Parses URL-encoded and JSON data.
+- **Logging Middleware**:
+  - Logs incoming requests, including data if present.
+- **API Key Middleware**:
+  - Validates API keys and stores them in `req.key`.
 
-## Endpoints
+## HATEOAS Links
 
-- `GET /`: Renders the home page.
-- `POST /submit`: Handles form submission.
-- `PATCH /api/students/:id`: Updates student data by ID.
-- `DELETE /api/students/:id`: Deletes student data by ID.
-- `GET /api/admin/*`: Admin API endpoints.
-- `GET /api/staff/*`: Staff API endpoints.
-- `GET /api/students/*`: Student API endpoints.
+- USE POSTMAN TO CHECK THESE ROUTES
 
-## Custom Middleware
+- Root API endpoint: `/api`
 
-- `logReq`: Logs incoming requests.
-- Custom 404 middleware: Handles resource not found errors.
-- Error-handling middleware: Handles server errors.
+  - Available links: FOR STUDENT
 
-## CRUD Operations
+    - `GET:  http://localhost:3000/api/student/?api-key=dublinschools`: Retrieve student data.
+    - `POST: http://localhost:3000/api/student/?api-key=ds-district`: Add a new student.
+      id: 1,
+      name: Carmen
+      username: Carmen_3
+      email: carmen_33@example.com
+    - `PATCH: http://localhost:3000/api/student/1?api-key=ds-district`: Patch student data.
+    - `DELETE: http://localhost:3000/api/student/1?api-key=ds-district`: Delete a student.
 
-- **Create**: Form submission handled by `POST /submit`.
-- **Read**: Data retrieval handled by various API endpoints.
-- **Update**: Update user data handled by `PATCH /api/students/:id`.
-- **Delete**: Delete user data handled by `DELETE /api/students/:id`.
+  - Available links: FOR STAFF
+
+    - `GET:  http://localhost:3000/api/staff/?api-key=dublinschools`: Retrieve staff data.
+    - `POST: http://localhost:3000/api/staff/?api-key=ds-district`: Add a new staff.
+      staffid: 2,
+      title: staff-345
+      role: teacher
+    - `PATCH: http://localhost:3000/api/staff/1?api-key=ds-district`: Patch staff data.
+    - `DELETE: http://localhost:3000/api/staff/1?api-key=ds-district`: Delete a new staff.
+
+    Available links: FOR ADMIN
+
+    - `GET:  http://localhost:3000/api/admin/?api-key=dublinschools`: Retrieve admin data.
+    - `POST: http://localhost:3000/api/admin/?api-key=ds-district`: Add a new admin.
+      id: 3,
+      adminId: staff-345
+      access: teacher
+    - `PATCH: http://localhost:3000/api/admin/1?api-key=ds-district`: Patch admin data.
+    - `DELETE: http://localhost:3000/api/admin/1?api-key=ds-district`: Delete an admin.
