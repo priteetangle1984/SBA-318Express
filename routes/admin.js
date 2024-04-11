@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const student = require("../data/student");
+const admin = require("../data/admin");
 const error = require("../utilities/error");
 
 
@@ -12,31 +12,31 @@ router
   .get((req, res) => {
     const links = [
       {
-        href: "student/:id",
+        href: "admin/:id",
         rel: ":id",
         type: "GET",
       },
     ];
 
-    res.json({ student, links });
+    res.json({ admin, links });
   })
 
   // =======POST ROUTE
   .post((req, res, next) => {
-    if (req.body.name && req.body.username && req.body.email) {
-      if (student.find((u) => u.username == req.body.username)) {
-        next(error(409, "Username Already Taken"));
+    if (req.body.adminId && req.body.access) {
+      if (admin.find((a) => a.adminId == req.body.adminId)) {
+        next(error(409, "AdminId Already Taken"));
       }
 
-      const students = {
-        id: student[student.length - 1].id + 1,
+      const admins = {
+        id: admin[admin.length - 1].id + 1,
         name: req.body.name,
-        username: req.body.username,
+        adminId: req.body.adminId,
         email: req.body.email,
       };
 
-      student.push(students);
-      res.json(student[student.length - 1]);
+      admin.push(admins);
+      res.json(admin[admin.length - 1]);
     } else next(error(400, "Insufficient Data"));
   });
 
@@ -44,7 +44,7 @@ router
 router
   .route("/:id")
   .get((req, res, next) => {
-    const students = student.find((u) => u.id == req.params.id);
+    const admins = admin.find((a) => a.id == req.params.id);
 
     const links = [
       {
@@ -59,37 +59,37 @@ router
       },
     ];
 
-    if (students) res.json({ students, links });
+    if (admins) res.json({ admins, links });
     else next();
   })
 
   //======PATCH ROUTES
 
   .patch((req, res, next) => {
-    const students = student.find((u, i) => {
-      if (u.id == req.params.id) {
+    const admins = admin.find((a, i) => {
+      if (a.id == req.params.id) {
         for (const key in req.body) {
-          student[i][key] = req.body[key];
+          admin[i][key] = req.body[key];
         }
         return true;
       }
     });
 
-    if (students) res.json(students);
+    if (admins) res.json(admins);
     else next();
   })
 
   //DELETE ROUTE
-
+  
   .delete((req, res, next) => {
-    const students = student.find((u, i) => {
-      if (u.id == req.params.id) {
-        student.splice(i, 1);
+    const admins = admin.find((a, i) => {
+      if (a.id == req.params.id) {
+        admin.splice(i, 1);
         return true;
       }
     });
 
-    if (students) res.json(students);
+    if (admins) res.json(admins);
     else next();
   });
 

@@ -24,14 +24,14 @@ router
   // ======POST ROUTE
   .post((req, res, next) => {
     if (req.body.staffId && req.body.title && req.body.role) {
-      const post = {
+      const staffs = {
         id: staff[staff.length - 1].id + 1,
         userId: req.body.staffId,
         title: req.body.title,
         content: req.body.role,
       };
 
-      staff.push(post);
+      staff.push(staffs);
       res.json(staff[staff.length - 1]);
     } else next(error(400, "Insufficient Data"));
   });
@@ -40,7 +40,7 @@ router
 router
   .route("/:id")
   .get((req, res, next) => {
-    const post = staff.find((p) => p.id == req.params.id);
+    const staffs = staff.find((p) => p.id == req.params.id);
 
     const links = [
       {
@@ -55,14 +55,14 @@ router
       },
     ];
 
-    if (post) res.json({ post, links });
+    if (staffs) res.json({ staffs, links });
     else next();
   })
 
   // ======PATCH ROUTE
 
   .patch((req, res, next) => {
-    const post = staff.find((p, i) => {
+    const staffs = staff.find((p, i) => {
       if (p.id == req.params.id) {
         for (const key in req.body) {
           staff[i][key] = req.body[key];
@@ -71,20 +71,20 @@ router
       }
     });
 
-    if (post) res.json(post);
+    if (staffs) res.json(staffs);
     else next();
   })
   // DELETE ROUTE
-  
+
   .delete((req, res, next) => {
-    const post = staff.find((p, i) => {
+    const staffs = staff.find((p, i) => {
       if (p.id == req.params.id) {
         staff.splice(i, 1);
         return true;
       }
     });
 
-    if (post) res.json(post);
+    if (staffs) res.json(staffs);
     else next();
   });
 

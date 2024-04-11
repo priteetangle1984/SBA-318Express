@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 
 const student = require("./routes/student");
 const staff = require("./routes/staff");
+const admin = require("./routes/admin");
 
 const error = require("./utilities/error");
 
@@ -49,6 +50,7 @@ app.use("/api", function (req, res, next) {
 // Using Routes
 app.use("/api/student", student);
 app.use("/api/staff", staff);
+app.use("/api/admin", admin);
 
 // Adding some HATEOAS links.
 app.get("/", (req, res) => {
@@ -85,6 +87,16 @@ app.get("/api", (req, res) => {
       {
         href: "api/staff",
         rel: "staff",
+        type: "POST",
+      },
+      {
+        href: "api/admin",
+        rel: "admin",
+        type: "GET",
+      },
+      {
+        href: "api/admin",
+        rel: "admin",
         type: "POST",
       },
     ],
