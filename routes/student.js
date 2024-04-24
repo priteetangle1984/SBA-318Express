@@ -23,16 +23,22 @@ router
 
   // =======POST ROUTE
   .post((req, res, next) => {
-    if (req.body.name && req.body.username && req.body.email) {
-      if (student.find((u) => u.username == req.body.username)) {
-        next(error(409, "Username Already Taken"));
+    if (req.body.studentname && req.body.email && req.body.password && req.body.address
+       && req.body.address2 && req.body.city && req.body.state && req.body.zip) {
+      if (student.find((u) => u.studentname == req.body.studentname)) {
+        next(error(409, "Studentname Already Taken"));
       }
 
       const students = {
         id: student[student.length - 1].id + 1,
-        name: req.body.name,
-        username: req.body.username,
+        studentname: req.body.name,
         email: req.body.email,
+        password: req.body.password,
+        address: req.body.address,
+        address2: req.body.address2,
+        city: req.body.city,
+        state: req.body.state,
+        zip: req.body.zip,
       };
 
       student.push(students);
