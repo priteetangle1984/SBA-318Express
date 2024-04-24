@@ -14,6 +14,16 @@ const port = 3000;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json({ extended: true }));
 
+// Set EJS as the view engine
+app.set('view engine', 'ejs');
+app.set('views', __dirname + '/views');
+
+// Render the index.ejs view
+app.get('/', (req, res) => {
+    res.render('index');
+});
+
+
 // Logging Middlewaare
 app.use((req, res, next) => {
   const time = new Date();
@@ -28,6 +38,7 @@ ${time.toLocaleTimeString()}: Received a ${req.method} request to ${req.url}.`
   }
   next();
 });
+
 
 // Valid API Keys.
 apiKeys = ["dublinschools", "ds-district", "data-for-schools"];
@@ -52,6 +63,7 @@ app.use("/api/student", student);
 app.use("/api/staff", staff);
 app.use("/api/admin", admin);
 
+
 // Adding some HATEOAS links.
 app.get("/", (req, res) => {
   res.json({
@@ -64,6 +76,7 @@ app.get("/", (req, res) => {
     ],
   });
 });
+
 
 // Adding some HATEOAS links.
 app.get("/api", (req, res) => {
@@ -102,6 +115,18 @@ app.get("/api", (req, res) => {
     ],
   });
 });
+ 
+// Handling form submission
+app.post("/submit", (req, res) => {
+  const { studentname, email, password, address, city, state, zip } = req.body;
+  // Perform validation (example)
+  if (!studentname || !email || !password) {
+    return res.status(400).json({ error: "Student name, email, and password are required." });
+}
+  // Send a response back to the client
+  res.status(200).json({ message: "Form submitted successfully!" });
+});
+
 
 // 404 Middleware
 app.use((req, res, next) => {
